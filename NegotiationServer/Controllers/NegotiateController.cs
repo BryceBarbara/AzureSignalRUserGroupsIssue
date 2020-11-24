@@ -22,6 +22,7 @@ namespace NegotiationServer.Controllers
                 .WithOptions(o =>
                 {
 	                o.ConnectionString = connectionString;
+                    // Persistent is important for the repro
 	                o.ServiceTransportType = ServiceTransportType.Persistent;
                 })
                 .Build();
@@ -34,7 +35,6 @@ namespace NegotiationServer.Controllers
             {
                 return BadRequest("User ID is null or empty.");
             }
-
 
             await MuckAroundWithGroups(hub, user);
 
@@ -64,8 +64,6 @@ namespace NegotiationServer.Controllers
 	        {
 		        await hubContext.UserGroups.AddToGroupAsync(user, "group" + (i + 1));
 	        }
-
-	        await hubContext.DisposeAsync();
         }
     }
 }
