@@ -126,6 +126,7 @@ namespace Microsoft.Azure.SignalR.Samples.Management
                 "send groups <Group List (Seperated by ',')> <Message>\n" +
                 "usergroup add <User Id> <Group Name>\n" +
                 "usergroup remove <User Id> <Group Name>\n" +
+                "usergroup check <User Id> <Group Name>\n" +
                 "broadcast <Message>\n" +
                 "***********************");
         }
